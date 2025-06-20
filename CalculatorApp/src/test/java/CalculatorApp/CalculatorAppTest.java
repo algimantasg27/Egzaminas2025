@@ -3,6 +3,7 @@ package CalculatorApp;
 import lt.techin.CalculatorAppPage;
 import lt.techin.IndexPage;
 import lt.techin.RegisterPage;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -11,21 +12,24 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class CalculatorAppTest extends BaseTest{
 
     @Test
+    @Tag("Positive")
     void PositiveUserRegisterTest() {
 
         IndexPage indexPage = new IndexPage(driver);
         indexPage.clickRegisterPage();
 
         RegisterPage registerPage = new RegisterPage(driver);
-        registerPage.enterInputUsername("Testas2");
+        registerPage.enterInputUsername("Testas4");
         registerPage.enterInputPassword("Test");
         registerPage.enterInputPasswordConfirm("Test");
         registerPage.clickButtonSubmit();
 
-        assertTrue(registerPage.getUsername().equals("Testas2"));
+        assertTrue(registerPage.getUsername().equals("Testas4"));
     }
 
     @Test
+    @Tag("Negative")
+
     void NegativeUserRegisterTest() {
 
         String errorMessage = "Įvesti slaptažodžiai nesutampa";
@@ -43,6 +47,8 @@ public class CalculatorAppTest extends BaseTest{
     }
 
     @Test
+    @Tag("Positive")
+
     void PositiveUserLoginTest() {
 
         IndexPage indexPage = new IndexPage(driver);
@@ -55,6 +61,8 @@ public class CalculatorAppTest extends BaseTest{
     }
 
     @Test
+    @Tag("Negative")
+
     void NegativeUserLoginTest() {
 
         IndexPage indexPage = new IndexPage(driver);
@@ -67,6 +75,8 @@ public class CalculatorAppTest extends BaseTest{
     }
 
     @Test
+    @Tag("Positive")
+
     void PositiveNewRecordInputTest() {
 
         IndexPage indexPage = new IndexPage(driver);
@@ -89,6 +99,8 @@ public class CalculatorAppTest extends BaseTest{
     }
 
     @Test
+    @Tag("Negative")
+
     void NegativeNewRecordInputTest() {
 
         IndexPage indexPage = new IndexPage(driver);
@@ -108,6 +120,8 @@ public class CalculatorAppTest extends BaseTest{
     }
 
     @Test
+    @Tag("Positive")
+
     void PositiveUserLogOutTest() {
 
         String message = "Sėkmingai atsijungėte";
